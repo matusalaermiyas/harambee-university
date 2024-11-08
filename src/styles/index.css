@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.input-shadow {
+  box-shadow: 0px 1px 2px 0px #0000000d;
+}
+
+select {
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.select-wrapper {
+  position: relative;
+}
+
+.select-wrapper::after {
+  content: url("arrow_down.svg");
+  font-size: 1rem;
+  top: 16px;
+  right: 16px;
+  position: absolute;
+  width: 20px;
+  height: 20px;
+}
