@@ -1,5 +1,4 @@
-import Input from "./components/Input";
-import EditApplicants from "./Screens/EditApplicant/EditApplicants";
+import EditApplicants from "./SubPages/EditApplicant/EditApplicants";
 
 function App() {
   return (
