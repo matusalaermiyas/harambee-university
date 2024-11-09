@@ -1,27 +1,39 @@
 import React from "react";
 
-function ErrorModal() {
+function WarningModal({
+  title = "Are you sure?",
+  message = "This action cannot be undone. Please confirm if you wish to proceed.",
+  confirmText = "Delete",
+  onConfirm,
+  onClose,
+  className = "",
+  backgroundColor = "bg-gray-100",
+}) {
   return (
     <div
-      className="error-modal-wrapper flex flex-col justify-center items-center bg-gray-100"
+      className={`error-modal-wrapper flex flex-col justify-center items-center ${backgroundColor} ${className}`}
       style={{
         width: 608,
         height: 322,
         borderRadius: 12,
       }}
     >
+      {/* Close Button */}
       <div
-        className="bg-modalCloseBackgroundColor bg-opacity-5 self-end flex items-center justify-center"
+        className="bg-modalCloseBackgroundColor bg-opacity-5 self-end flex items-center justify-center cursor-pointer"
         style={{
           width: 24,
           height: 24,
           borderRadius: 6,
         }}
+        onClick={onClose}
       >
         <p>x</p>
       </div>
+
+      {/* Icon */}
       <div
-        className="bg-red-100 flex justify-center items-center "
+        className="bg-red-100 flex justify-center items-center"
         style={{
           width: 40,
           height: 40,
@@ -31,6 +43,8 @@ function ErrorModal() {
       >
         <p>?</p>
       </div>
+
+      {/* Title */}
       <h1
         style={{
           fontSize: 24,
@@ -38,8 +52,10 @@ function ErrorModal() {
           textAlign: "center",
         }}
       >
-        Are you sure you want to delete this record?
+        {title}
       </h1>
+
+      {/* Message */}
       <p
         className="text-lightGreyTextColor"
         style={{
@@ -49,26 +65,24 @@ function ErrorModal() {
           marginTop: 5,
         }}
       >
-        This action cannot be undone. Please confirm if you wish to proceed.
+        {message}
       </p>
+
+      {/* Confirm Button */}
       <button
-        className="bg-redButtonColor text-white"
+        className="bg-redButtonColor text-white mt-5"
         style={{
           width: 260,
           height: 44,
           borderRadius: 8,
-          marginTop: 35,
           fontSize: 16,
-          paddingTop: 12,
-          paddingBottom: 10,
-          paddingRight: 97,
-          paddingLeft: 97,
         }}
+        onClick={onConfirm}
       >
-        Delete
+        {confirmText}
       </button>
     </div>
   );
 }
 
-export default ErrorModal;
+export default WarningModal;
