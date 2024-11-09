@@ -1,3 +1,4 @@
+import ErrorModal from "./Components/ErrorModal";
 import EditApplicants from "./SubPages/EditApplicant/EditApplicants";
 
 function App() {
@@ -6,7 +7,7 @@ function App() {
       className="w-screen
      h-screen p-10 "
     >
-      <EditApplicants />
+      <ErrorModal />
     </div>
   );
 }
